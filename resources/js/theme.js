@@ -84,6 +84,20 @@ function load() {
       document.querySelector('body').classList.add("fixed-sidebar");
     }
   }
+  
+  if (Nova.config.is_admin === false) {
+    var sidebars = document.querySelectorAll('.w-sidebar');
+    sidebars.forEach(function(sidebar) {
+      sidebar.style.display = 'none';
+    });
+
+    var contents = document.querySelectorAll('.content');
+    contents.forEach(function(content) {
+      content.style['max-width'] = '100%';
+    });
+
+    hamburger.style.display = 'none';
+  }
 }
 
 document.addEventListener("DOMContentLoaded", load, false);

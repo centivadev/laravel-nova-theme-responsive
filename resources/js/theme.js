@@ -97,6 +97,12 @@ function load() {
     });
 
     hamburger.style.display = 'none';
+
+    // fix non admin select all deleted icon (https://github.com/laravel/nova-issues/issues/322)
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = 'div[dusk="delete-menu"] { display: none !important; }';
+    document.getElementsByTagName('head')[0].appendChild(style);
   }
 }
 
